@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="section start-screen active">
+        <div class="quiz-screen">
+            <h1 class="quiz-title">QUIZ</h1>
+            <div class="quiz-icon">
+                <img src="/assets/output-onlinepngtools 3.png" alt="Quiz-Icon" class="quiz-icon-img">
+            </div>
+            
+            <button class="start-btn" onclick="startQuiz()">START</button>
+        </div>
+    </div>
+
+    <div class="section question-1">
+        <div class="quiz-screen">
+            <div class="timer">Time: <span id="time">00:00</span></div>
+            <div class="question-container">
+                <h2 class="question-number">01</h2>
+                <p class="question-text">Which planet in the Solar System is the smallest?</p>
+            </div>
+            <div class="options-container">
+                <button class="option" onclick="checkAnswer('question-1', false)">A. Pluto</button>
+                <button class="option" onclick="checkAnswer('question-1', false)">B. Earth</button>
+                <button class="option" onclick="checkAnswer('question-1', true)">C. Mercury</button>
+                <button class="option" onclick="checkAnswer('question-1', false)">D. Mars</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section question-2">
+        <div class="quiz-screen">
+            <div class="timer">Time: <span id="time">00:00</span></div>
+            <div class="question-container">
+                <h2 class="question-number">02</h2>
+                <p class="question-text">What is the largest planet in our solar system?</p>
+            </div>
+            <div class="options-container">
+                <button class="option" onclick="checkAnswer('question-2', true)">A. Jupiter</button>
+                <button class="option" onclick="checkAnswer('question-2', false)">B. Saturn</button>
+                <button class="option" onclick="checkAnswer('question-2', false)">C. Uranus</button>
+                <button class="option" onclick="checkAnswer('question-2', false)">D. Neptune</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section question-3">
+        <div class="quiz-screen">
+            <div class="timer">Time: <span id="time">00:00</span></div>
+            <div class="question-container">
+                <h2 class="question-number">03</h2>
+                <p class="question-text">Which planet is known as the Red Planet?</p>
+            </div>
+            <div class="options-container">
+                <button class="option" onclick="checkAnswer('question-3', false)">A. Venus</button>
+                <button class="option" onclick="checkAnswer('question-3', false)">B. Jupiter</button>
+                <button class="option" onclick="checkAnswer('question-3', false)">C. Saturn</button>
+                <button class="option" onclick="checkAnswer('question-3', true)">D. Mars</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section question-4">
+        <div class="quiz-screen">
+            <div class="timer">Time: <span id="time">00:00</span></div>
+            <div class="question-container">
+                <h2 class="question-number">04</h2>
+                <p class="question-text">Which planet has the most extensive ring system?</p>
+            </div>
+            <div class="options-container">
+                <button class="option" onclick="checkAnswer('question-4', false)">A. Jupiter</button>
+                <button class="option" onclick="checkAnswer('question-4', true)">B. Saturn</button>
+                <button class="option" onclick="checkAnswer('question-4', false)">C. Neptune</button>
+                <button class="option" onclick="checkAnswer('question-4', false)">D. Uranus</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section question-5">
+        <div class="quiz-screen">
+            <div class="timer">Time: <span id="time">00:00</span></div>
+            <div class="question-container">
+                <h2 class="question-number">05</h2>
+                <p class="question-text">Which planet is closest to the Sun?</p>
+            </div>
+            <div class="options-container">
+                <button class="option" onclick="checkAnswer('question-5', false)">A. Venus</button>
+                <button class="option" onclick="checkAnswer('question-5', true)">B. Mercury</button>
+                <button class="option" onclick="checkAnswer('question-5', false)">C. Earth</button>
+                <button class="option" onclick="checkAnswer('question-5', false)">D. Mars</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section win-screen">
+        <div class="quiz-screen">
+            <p class="result-texts">GREAT!</p>
+            <div class="result-icon">
+                <img src="/assets/output-onlinepngtools 4.png" alt="Result Icon" class="result-icon-img">
+            </div>
+            <p class="result-text"> YOU<br> WIN!</p>
+            <p class="score-text">Score: <span id="score-display"></span>/5</p> 
+            <div class="result-options">
+                <button class="icon-btn" onclick="showSection('start-screen')">
+                    <img src="/assets/output-onlinepngtools (1).png" alt="Exit Icon">
+                </button>
+                <button class="icon-btn" onclick="showSection('start-screen')">
+                    <img src="/assets/output-onlinepngtools.png" alt="Retry Icon">
+                </button>
+            </div>
+            <button class="start-btn" onclick="displayLeaderboard()">View Leaderboard</button>
+        </div>
+    </div>
+
+    <div class="section lose-screen">
+        <div class="quiz-screen">
+            <p class="result-texts">Oh no!</p>
+            <p class="result-text">YOU<br>LOST!</p>
+            <img src="/assets/output-onlinepngtools 5.png" alt="Result Icon" class="result-icon-img">
+            <p class="score-text">Score: <span id="score-display-lose"></span>/5</p> 
+            <div class="result-options">
+                <button class="try-again-btn" onclick="showSection('start-screen')">TRY AGAIN</button>
+            </div>
+            <div class="result-options">
+                <button class="icon-btn" onclick="showSection('start-screen')">
+                    <img src="/assets/output-onlinepngtools (1).png" alt="Exit Icon">
+                </button>
+                <button class="icon-btn" onclick="showSection('start-screen')">
+                    <img src="/assets/output-onlinepngtools.png" alt="Retry Icon">
+                </button>
+            </div>
+            <button class="start-btn" onclick="displayLeaderboard()">View Leaderboard</button>
+        </div>
+    </div>
+
+    <div class="section leaderboard-screen">
+        <div class="quiz-screen">
+            <h2>Leaderboard</h2>
+            <table id="leaderboard">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Score</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button class="start-btn" onclick="showSection('start-screen')">Back to Start</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
